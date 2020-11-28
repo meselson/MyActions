@@ -112,6 +112,9 @@ async function downloader(content) {
     if (content.indexOf("jdFactoryShareCodes") > 0) {
         await download_jdFactory();
     }
+    if (content.indexOf("jdDreamFactoryShareCodes" > 0) {
+        await download_jddreamFactory();
+    }
 }
 
 async function download_jdcookie() {
@@ -155,6 +158,12 @@ async function download_jdFactory(content) {
     let fcontent = response.data;
     await fs.writeFileSync("./jdFactoryShareCodes.js.js", fcontent, "utf8");
     console.log("下载东东工厂分享码代码完毕");
+}
+async function download_jddreamFactory(content) {
+    let response = await axios.get("https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jdDreamFactoryShareCodes.js");
+    let fcontent = response.data;
+    awaiy fs.writeFileSync("./jdDreamFactoryShareCodes.js", fcontent, "utf8");
+    console.log("下载京喜工厂分享代码完毕");
 }
 
 module.exports = {
